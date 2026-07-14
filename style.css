@@ -743,64 +743,74 @@ img, svg { max-width: 100%; display: block; }
   font-size: 0.95rem;
 }
 
-/* ---------- Compare table (Papír/Excel vs eSafety) ---------- */
-.compare-table-wrapper {
+/* ---------- Compare list (Papír/Excel vs eSafety) ---------- */
+.compare-list {
   max-width: 880px;
   margin: 0 auto;
-  overflow-x: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+
+.compare-row-title {
+  grid-column: 1 / -1;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--color-text);
+}
+
+.compare-col {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border-radius: 12px;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
 }
 
-.compare-table {
-  width: 100%;
-  min-width: 640px;
-  border-collapse: collapse;
-  font-size: 0.92rem;
-}
-
-.compare-table th,
-.compare-table td {
-  padding: 16px 20px;
-  text-align: left;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.compare-table thead th {
-  background: var(--color-bg-alt);
-  font-size: 0.82rem;
+.compare-col-label {
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  color: var(--color-text-muted);
-  white-space: nowrap;
 }
 
-.compare-th-highlight {
-  color: var(--color-primary) !important;
-  background: var(--color-primary-tint) !important;
+.compare-col-text {
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
-.compare-table tbody th {
-  font-weight: 600;
-  color: var(--color-text);
-  white-space: nowrap;
+.compare-col-con {
+  background: var(--color-bg-alt);
 }
 
-.compare-table tbody td:first-of-type {
+.compare-col-con .compare-col-label {
   color: var(--color-text-muted);
 }
 
-.compare-table tbody td:last-of-type {
-  color: var(--color-text);
-  font-weight: 600;
+.compare-col-con .compare-col-text {
+  color: var(--color-text-muted);
+}
+
+.compare-col-pro {
   background: var(--color-primary-tint);
+  border-color: var(--color-primary);
 }
 
-.compare-table tbody tr:last-child th,
-.compare-table tbody tr:last-child td {
-  border-bottom: none;
+.compare-col-pro .compare-col-label {
+  color: var(--color-primary);
+}
+
+.compare-col-pro .compare-col-text {
+  color: var(--color-text);
+  font-weight: 600;
 }
 
 /* ---------- Process (Hogyan működik) ---------- */
@@ -1221,6 +1231,9 @@ img, svg { max-width: 100%; display: block; }
   .base-package-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+
+  .compare-row { grid-template-columns: 1fr; }
+  .compare-row-title { grid-column: auto; }
 
   .module-summary {
     flex-direction: column;

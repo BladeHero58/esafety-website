@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png">
-<link rel="stylesheet" href="style.css?v=28">
+<link rel="stylesheet" href="style.css?v=29">
 </head>
 <body>
 
@@ -118,58 +118,102 @@
         <p class="section-lead">Ugyanazt a munkát végzik el, mégis egészen más eredménnyel.</p>
       </div>
 
-      <div class="compare-table-wrapper">
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <th scope="col" class="compare-th-label"></th>
-              <th scope="col">Papír / Excel</th>
-              <th scope="col" class="compare-th-highlight">eSafety</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Lejáró dokumentumok követése</th>
-              <td>Kézzel vezetett táblázat, könnyen elmarad</td>
-              <td>Feltöltéskor felismeri a dokumentumot — nem kell kézzel beírni semmit, és automatikusan figyelmeztet lejárat előtt</td>
-            </tr>
-            <tr>
-              <th scope="row">Egy régi jegyzőkönyv megkeresése</th>
-              <td>Mappák, dossziék, sok esetben percekig tart</td>
-              <td>Néhány másodperc alatt kereshető</td>
-            </tr>
-            <tr>
-              <th scope="row">Hozzáférés több telephelyről</th>
-              <td>A papír egy helyen van, nehezebben másolható</td>
-              <td>Bárhonnan elérhető, jogosultság szerint</td>
-            </tr>
-            <tr>
-              <th scope="row">Adatvesztés kockázata</th>
-              <td>Papír elveszhet, Excel felülíródhat, nincs mentés</td>
-              <td>Központi, biztonsági mentéssel védett tárolás</td>
-            </tr>
-            <tr>
-              <th scope="row">Ki mit láthat</th>
-              <td>Nehezen szabályozható, mindenki ugyanazt látja</td>
-              <td>Jogosultsági szintek szerint szabályozott</td>
-            </tr>
-            <tr>
-              <th scope="row">Jegyzőkönyv kitöltése</th>
-              <td>Minden adatot manuálisan, újra és újra be kell írni vagy minden projekthez külön nyomtatványt kell a helyszíneken tartani</td>
-              <td>A felhasználó és a projekt adatai automatikusan kitöltődnek</td>
-            </tr>
-            <tr>
-              <th scope="row">Helyszíni rögzítés</th>
-              <td>Utólagos gépelés, kétszeres munka</td>
-              <td>Azonnal, helyben, mobilon vagy tableten</td>
-            </tr>
-            <tr>
-              <th scope="row">Aláírás</th>
-              <td>Nyomtatás, aláírás, majd újra beszkennelés</td>
-              <td>Digitális aláírás a helyszínen</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="compare-list">
+        <div class="compare-row">
+          <div class="compare-row-title">Lejáró dokumentumok követése</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Kézzel vezetett táblázat, könnyen elmarad</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Feltöltéskor felismeri a dokumentumot — nem kell kézzel beírni semmit, és automatikusan figyelmeztet lejárat előtt</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Egy régi jegyzőkönyv megkeresése</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Mappák, dossziék, sok esetben percekig tart</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Néhány másodperc alatt kereshető</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Hozzáférés több telephelyről</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">A papír egy helyen van, nehezebben másolható</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Bárhonnan elérhető, jogosultság szerint</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Adatvesztés kockázata</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Papír elveszhet, Excel felülíródhat, nincs mentés</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Központi, biztonsági mentéssel védett tárolás</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Ki mit láthat</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Nehezen szabályozható, mindenki ugyanazt látja</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Jogosultsági szintek szerint szabályozott</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Jegyzőkönyv kitöltése</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Minden adatot manuálisan, újra és újra be kell írni vagy minden projekthez külön nyomtatványt kell a helyszíneken tartani</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">A felhasználó és a projekt adatai automatikusan kitöltődnek</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Helyszíni rögzítés</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Utólagos gépelés, kétszeres munka</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Azonnal, helyben, mobilon vagy tableten</span>
+          </div>
+        </div>
+
+        <div class="compare-row">
+          <div class="compare-row-title">Aláírás</div>
+          <div class="compare-col compare-col-con">
+            <span class="compare-col-label">✕ Papír / Excel</span>
+            <span class="compare-col-text">Nyomtatás, aláírás, majd újra beszkennelés</span>
+          </div>
+          <div class="compare-col compare-col-pro">
+            <span class="compare-col-label">✓ eSafety</span>
+            <span class="compare-col-text">Digitális aláírás a helyszínen</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
