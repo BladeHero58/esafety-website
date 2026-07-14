@@ -745,25 +745,37 @@ img, svg { max-width: 100%; display: block; }
 
 /* ---------- Compare list (Papír/Excel vs eSafety) ---------- */
 .compare-list {
-  max-width: 880px;
+  max-width: 820px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 22px;
 }
 
 .compare-row {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 14px;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 16px;
   align-items: stretch;
 }
 
 .compare-row-title {
   grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-weight: 700;
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: var(--color-text);
+}
+
+.compare-row-title::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  flex-shrink: 0;
 }
 
 .compare-col {
@@ -776,19 +788,21 @@ img, svg { max-width: 100%; display: block; }
 }
 
 .compare-col-label {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .compare-col-text {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   line-height: 1.5;
 }
 
 .compare-col-con {
-  background: var(--color-bg-alt);
+  background: transparent;
+  border-style: dashed;
+  opacity: 0.7;
 }
 
 .compare-col-con .compare-col-label {
@@ -797,11 +811,15 @@ img, svg { max-width: 100%; display: block; }
 
 .compare-col-con .compare-col-text {
   color: var(--color-text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--color-border);
+  text-decoration-thickness: 1px;
 }
 
 .compare-col-pro {
   background: var(--color-primary-tint);
-  border-color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .compare-col-pro .compare-col-label {
