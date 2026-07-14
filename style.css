@@ -1228,4 +1228,10 @@ img, svg { max-width: 100%; display: block; }
   }
 
   .module-summary .btn { width: 100%; text-align: center; }
+
+  .client-slide { padding: 44px 20px 24px; }
+  .client-slide-viewport { min-height: 420px; }
+  .client-nav-prev { left: 6px; }
+  .client-nav-next { right: 6px; }
+  .client-nav { width: 30px; height: 30px; }
 }
