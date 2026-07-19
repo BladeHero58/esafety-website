@@ -732,6 +732,13 @@ img, svg { max-width: 100%; display: block; }
 
 .testreszabas-media .media-placeholder { aspect-ratio: 4 / 3.3; }
 
+.testreszabas-image {
+  width: 100%;
+  aspect-ratio: 4 / 3.3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
 /* ---------- Audience ---------- */
 .audience-grid {
   display: grid;
