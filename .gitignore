@@ -4,3 +4,10 @@ Logók/
 *.pdf
 logo.svg
 logo-icon.svg
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
