@@ -17,7 +17,7 @@ Formátum jelmagyarázat:
 Papírköteg, kézzel firkált Excel-tábla. Gyors vágások: papírkupac → firkált cella → naptárban bekarikázott, elmúlt dátum.
 
 **HANG:**
-"Az Önök munkavédelmi dokumentációja is papíron vagy szórt Excel-fájlokban van nagyrészt?"
+"Az Önök munkavédelmi dokumentációja is nagyrészt papíron vagy szórt Excel-fájlokban van?"
 
 **Felirat:** —
 
@@ -39,7 +39,7 @@ Az eSafety felület megnyílik, kezdőképernyő/dashboard. Gyors zoom a felüle
 Jegyzőkönyv kitöltése mobilon/tableten — kiemelve, ahogy a felhasználó és projekt adatai automatikusan megjelennek a mezőkben. Rövid vágások: üres mező → automatikusan kitöltött mező → pipa/megerősítés.
 
 **HANG:**
-"Személyre szabott jegyzőkönyveket biztosítunk. Kitöltéskor bizonyos adatok automatikusan kitöltésre kerülhetnek — nem kell újra begépelni semmit."
+"Többek között személyre szabott jegyzőkönyveket biztosítunk. Kitöltéskor bizonyos adatok automatikusan kitöltésre kerülhetnek — nem kell újra és újra begépelni ugyanazt."
 
 **Felirat:** Automatikus adatkitöltés
 
@@ -50,35 +50,36 @@ Jegyzőkönyv kitöltése mobilon/tableten — kiemelve, ahogy a felhasználó �
 Digitális aláírás rögzítése a képernyőn (közeli, gyors vágás az ujjal/tollal írt aláírásra), majd repülő üzemmód ikon, majd szinkronizáció-jelzés, ahogy visszatér az internet.
 
 **HANG:**
-"Az aláírás a helyszínen, digitálisan történik. Internetkapcsolat nélkül is kitölthető egy jegyzőkönyv — az adatok automatikusan szinkronizálódnak, amint visszatér a kapcsolat."
+"Az aláírás a helyszínen, digitálisan történik akár internetkapcsolat nélkül is kitölthető egy jegyzőkönyv — az adatok automatikusan szinkronizálódnak, amint visszatér a kapcsolat."
 
 **Felirat:** Digitális aláírás · Offline mód
 
 ---
 
-## 5. jelenet — 0:40–0:56
+## 6. jelenet — 0:40–0:56
 **SCREEN**
 Kiemelt, egyedi modul: gépdokumentáció feltöltése (akár fotóval is) → a rendszer felismeri a dokumentumot → lejárati dátum megjelenik és eltárolódik. Vágások: fotózás mozdulata → feltöltés → felismert dátum kiemelve zoom-mal.
 
 **HANG:**
-"Egyes dokumentumokat — legyen szó PDF-ről vagy egy helyszínen készült fotóról — a rendszer magától felismer. Munkagép-dokumentáció feltöltésekor felismeri a dokumentum típusát, rögzíti a lejárati dátumot, és figyelmeztet, mielőtt a dokumentáció lejárna. Így a projekten lévő összes munkagép dokumentációja nyomon követhető."
+"Az eSafety alkalmazás modulokból tevődik össze. Önök választhatják ki mely modulokra van szükségük. A gép dokumentáció modullal, ha gépdokumentáció kerül feltöltésre — legyen szó PDF-ről vagy egy helyszínen készült fotóról — a rendszer magától felismeri a dokumentum típusát, rögzíti a lejárati dátumot, és figyelmeztet, mielőtt a dokumentáció lejárna. Így a projekten lévő összes munkagép dokumentációja nyomon követhető."
 
 **Felirat:** Automatikus dokumentumfelismerés és lejárat-figyelés
 
 ---
 
-## 6. jelenet — 0:56–1:06
+## 7. jelenet — 0:56–1:06
 **SCREEN**
+
 Gyors keresés egy régi jegyzőkönyvre — a találat és a hozzá tartozó képek pár másodperc alatt megjelennek, majd egy pillantás a statisztika/riport nézetre.
 
 **HANG:**
-"Egy régi jegyzőkönyv a hozzá tartozó képekkel együtt néhány másodperc alatt kereshető."
+"Az összes feltöltött dokumentáció és létrehozott jegyzőkönyv felhőben tárolódik.Egy régi jegyzőkönyv a hozzá tartozó képekkel együtt néhány másodperc alatt kereshető."
 
 **Felirat:** Keresés másodpercek alatt
 
 ---
 
-## 7. jelenet — 1:06–1:16
+## 5. jelenet — 1:06–1:16
 **SCREEN**
 Jogosultságkezelés: projekt létrehozása, felhasználó hozzárendelése, jogosultsági szint beállítása.
 
@@ -94,7 +95,7 @@ Jogosultságkezelés: projekt létrehozása, felhasználó hozzárendelése, jog
 Óranyilvántartás naptár nézetben, majd beosztáskezelés heti/havi nézetben.
 
 **HANG:**
-"A munkaidő és a szabadságok nyomon követése naptár nézetben, havi kimutatással történik. A beosztás heti vagy havi bontásban, dolgozónként állítható össze."
+"Az óranyilvántartó modullal a munkaidő és a szabadságok nyomon követése naptár nézetben, havi kimutatással történik. A beosztás heti vagy havi bontásban, dolgozónként állítható össze."
 
 **Felirat:** Óranyilvántartás · Beosztáskezelés
 
@@ -107,7 +108,7 @@ Jogszabálykövető modul: napi automatikus ellenőrzés jelzése, majd egy beé
 **HANG:**
 "A jogszabálykövetés minden nap automatikusan lefut, több száz jogszabályt ellenőrizve — minden változásról értesítés vagy email érkezik, rövid összefoglalóval."
 
-**Felirat:** Automatikus jogszabálykövetés
+**Felirat:**  jogszabálykövetés modul
 
 ---
 
@@ -116,9 +117,9 @@ Jogszabálykövető modul: napi automatikus ellenőrzés jelzése, majd egy beé
 GDPR-jelvény vagy térkép-illusztráció (európai szerverek), majd gyors betekintés a metaadat-mentésbe (kép készítésének helye, ideje) és az aláírás időbélyegére.
 
 **HANG:**
-"Az adatok kizárólag európai szervereken tárolódnak, a rendszer megfelel a GDPR előírásainak. A képekhez tartozó hely és időpont, valamint az aláírások időbélyege is elmentésre kerül, hogy szükség esetén könnyen bizonyítható legyen."
+"A rendszer megfelel a GDPR előírásainak, az adatok kizárólag európai szervereken tárolódnak. A képekhez tartozó hely és időpont, valamint az aláírások időbélyege is elmentésre kerül, hogy egy esetleges jogi vita esetén az ellenőrzésen észlelt hiányosságok vagy szabálytalanságok könnyen, hitelt érdemlően bizonyíthatók legyenek."
 
-**Felirat:** GDPR-kompatibilis · Európai szerverek
+**Felirat:** Jogszabályi megfelelés
 
 ---
 
@@ -127,7 +128,7 @@ GDPR-jelvény vagy térkép-illusztráció (európai szerverek), majd gyors bete
 eSafety logó, elérhetőség (email, telefon).
 
 **HANG:**
-"Kérjen ingyenes konzultációt, és megnézzük, hogyan nézne ki az Önökre szabott rendszer."
+"Az eSafety rendszer folyamatosan bővül további modulokkal. A célunk, hogy gyorsabbá, átláthatóbbá, automatizálttá tegyük a munkavédelmi dokumentálást. Kérjen ingyenes konzultációt, és megnézzük, hogyan nézne ki az Önökre szabott rendszer."
 
 **Felirat:** info@esafety.hu · 06 20 230 9341
 
