@@ -1,5 +1,39 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Süti-hozzájárulás + Google Analytics 4 — a mérés csak elfogadás után indul el
+const GA_MEASUREMENT_ID = 'G-BDTPJ7N1BB';
+const CONSENT_KEY = 'esafety_cookie_consent'; // 'accepted' | 'declined'
+
+function loadGoogleAnalytics() {
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+}
+
+const cookieBanner = document.getElementById('cookieBanner');
+const cookieAccept = document.getElementById('cookieAccept');
+const cookieDecline = document.getElementById('cookieDecline');
+const storedConsent = localStorage.getItem(CONSENT_KEY);
+
+if (storedConsent === 'accepted') {
+  loadGoogleAnalytics();
+} else if (storedConsent !== 'declined') {
+  cookieBanner.hidden = false;
+}
+
+cookieAccept.addEventListener('click', () => {
+  localStorage.setItem(CONSENT_KEY, 'accepted');
+  cookieBanner.hidden = true;
+  loadGoogleAnalytics();
+});
+
+cookieDecline.addEventListener('click', () => {
+  localStorage.setItem(CONSENT_KEY, 'declined');
+  cookieBanner.hidden = true;
+});
+
 // Mobile nav toggle
 const navToggle = document.getElementById('navToggle');
 const mainNav = document.getElementById('mainNav');

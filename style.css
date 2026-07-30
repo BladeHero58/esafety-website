@@ -1326,3 +1326,57 @@ img, svg { max-width: 100%; display: block; }
   .client-nav-next { right: 6px; }
   .client-nav { width: 30px; height: 30px; }
 }
+
+/* ---------- Süti-hozzájárulási sáv ---------- */
+.cookie-banner {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  padding: 18px 20px;
+}
+
+.cookie-banner[hidden] { display: none; }
+
+.cookie-banner-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cookie-banner-text {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.cookie-banner-actions .btn {
+  padding: 9px 18px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .cookie-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .cookie-banner-actions {
+    justify-content: flex-end;
+  }
+}

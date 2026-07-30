@@ -10,6 +10,8 @@
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png">
 <link rel="stylesheet" href="style.css?v=32">
+<!-- Google Analytics 4 — a tényleges mérés csak süti-hozzájárulás után indul el, lásd script.js -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BDTPJ7N1BB"></script>
 </head>
 <body>
 
@@ -548,6 +550,18 @@
   </div>
 </footer>
 
-<script src="script.js?v=9"></script>
+<div class="cookie-banner" id="cookieBanner" hidden role="dialog" aria-live="polite" aria-label="Süti-hozzájárulás">
+  <div class="cookie-banner-inner">
+    <p class="cookie-banner-text">
+      Weboldalunk látogatottsági statisztikákhoz sütiket használ (Google Analytics), hogy jobban megérthessük, mi érdekli a látogatóinkat. Ehhez az Ön hozzájárulása szükséges.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn btn-ghost" id="cookieDecline">Elutasítom</button>
+      <button type="button" class="btn btn-primary" id="cookieAccept">Elfogadom</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=10"></script>
 </body>
 </html>
