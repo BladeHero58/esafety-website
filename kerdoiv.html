@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>eSafety — Igényfelmérő kérdőív</title>
+<meta name="description" content="Igényfelmérő kérdőív az eSafety munkavédelmi jegyzőkönyv-rendszer testreszabásához.">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+<style>
+  :root {
+    --color-bg: #ffffff;
+    --color-bg-alt: #f6f8fb;
+    --color-text: #10151c;
+    --color-text-muted: #57606f;
+    --color-border: #e4e8ee;
+    --color-primary: #1d4ed8;
+    --color-primary-dark: #1739a8;
+    --color-primary-tint: #eaf0fe;
+    --color-accent: #0ea5a4;
+    --color-accent-tint: #e3f7f6;
+    --shadow-sm: 0 1px 2px rgba(16, 21, 28, 0.06);
+    --shadow-md: 0 8px 24px rgba(16, 21, 28, 0.08);
+    --radius: 14px;
+    color-scheme: light dark;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #0e1218;
+      --color-bg-alt: #151b24;
+      --color-text: #eef1f6;
+      --color-text-muted: #9aa4b2;
+      --color-border: #232b37;
+      --color-primary: #4f7dfa;
+      --color-primary-dark: #6d94fb;
+      --color-primary-tint: #182544;
+      --color-accent: #2dd4c8;
+      --color-accent-tint: #14302e;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 28px rgba(0, 0, 0, 0.45);
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+
+  header.top {
+    margin-bottom: 36px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: clamp(24px, 3.6vw, 30px);
+    font-weight: 700;
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    line-height: 1.25;
+  }
+
+  .lead {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    max-width: 64ch;
+    margin: 0 0 8px;
+  }
+
+  .progress-track {
+    margin-top: 26px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--color-border);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transition: width .25s ease;
+  }
+  .progress-label {
+    margin-top: 8px;
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+
+  section.block {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 26px 26px 8px;
+    margin-bottom: 20px;
+  }
+
+  .block-head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .block-num {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: var(--color-primary-tint);
+    padding: 3px 9px;
+    border-radius: 999px;
+    letter-spacing: .02em;
+  }
+
+  h2 {
+    font-size: 16.5px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+
+  .field {
+    margin-bottom: 22px;
+  }
+
+  .field-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    line-height: 1.45;
+  }
+
+  .field-hint {
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    margin: 0 0 9px;
+    line-height: 1.5;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    width: 100%;
+    padding: 11px 13px;
+    border: 1px solid var(--color-border);
+    border-radius: 9px;
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    font-size: 14.5px;
+    font-family: inherit;
+    transition: border-color .15s ease, background .15s ease;
+  }
+
+  input:focus-visible, textarea:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-bg);
+    box-shadow: 0 0 0 3px var(--color-primary-tint);
+  }
+
+  textarea { resize: vertical; min-height: 64px; line-height: 1.5; }
+
+  .option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 13px;
+    border: 1px solid var(--color-border);
+    border-radius: 9px;
+    background: var(--color-bg-alt);
+    cursor: pointer;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .option:hover { border-color: var(--color-primary); }
+  .option:has(input:checked) {
+    border-color: var(--color-primary);
+    background: var(--color-primary-tint);
+  }
+
+  .option input[type="radio"],
+  .option input[type="checkbox"] {
+    margin-top: 2px;
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .option-text {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .option-other-input {
+    margin-top: 8px;
+    margin-left: 26px;
+  }
+  .option-other-input input {
+    max-width: 320px;
+  }
+
+  .module-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  @media (max-width: 540px) {
+    .module-grid { grid-template-columns: 1fr; }
+  }
+
+  .file-note {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+    background: var(--color-accent-tint);
+    border-radius: 8px;
+    padding: 9px 12px;
+    margin-top: 4px;
+  }
+
+  .prefilled-note {
+    font-size: 12.5px;
+    color: var(--color-primary-dark);
+    background: var(--color-primary-tint);
+    border-radius: 8px;
+    padding: 9px 12px;
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  @media (prefers-color-scheme: dark) {
+    .prefilled-note { color: var(--color-accent); }
+  }
+
+  .field:last-child { margin-bottom: 6px; }
+
+  .submit-section {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 26px;
+    text-align: center;
+  }
+
+  .submit-section p {
+    color: var(--color-text-muted);
+    font-size: 13.5px;
+    margin: 0 0 18px;
+    line-height: 1.55;
+  }
+
+  button.submit-btn {
+    appearance: none;
+    border: none;
+    background: var(--color-primary);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 32px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background .15s ease, transform .1s ease;
+  }
+  button.submit-btn:hover { background: var(--color-primary-dark); transform: translateY(-1px); }
+  button.submit-btn:disabled { opacity: .6; cursor: default; transform: none; }
+
+  .required-star { color: var(--color-accent); }
+
+  footer.foot {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--color-text-muted);
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="top">
+    <span class="eyebrow">eSafety · igényfelmérés</span>
+    <h1>Munkavédelmi jegyzőkönyv-rendszer — igényfelmérő kérdőív</h1>
+    <p class="lead">
+      Ezt a kérdőívet azért küldjük, hogy az Önökre szabott rendszert már az első verziónál
+      pontosan a munkafolyamatukhoz tudjuk igazítani — így kevesebb oda-vissza egyeztetésre
+      lesz szükség, és gyorsabban áll össze a végleges megoldás.
+    </p>
+    <p class="lead">
+      Nem kell minden kérdésre azonnal, kimerítő választ adni — ahol nem biztos a válasz, elég
+      egy hozzávetőleges becslés is, a részleteket a konzultáción pontosítjuk.
+    </p>
+    <p class="lead">
+      Ez az űrlap nem fogad fájlmellékletet — ha van meglévő jegyzőkönyv-sablonjuk, logójuk
+      vagy szankciós szabályzatuk, kérjük, ezeket külön emailben küldjék el az
+      <strong>info@esafety.hu</strong> címre, a kérdőív beküldésével egy időben vagy után.
+    </p>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 21 kérdés megválaszolva</div>
+  </header>
+
+  <form id="surveyForm" action="https://formspree.io/f/mzdndlky" method="POST">
+    <input type="hidden" name="_subject" value="📋 Igényfelmérő kérdőív kitöltve — eSafety">
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">1</span><h2>Alapadatok</h2></div>
+
+      <div class="field">
+        <label class="field-label" for="q1">Cég neve <span class="required-star">*</span></label>
+        <input type="text" id="q1" name="1_ceg_neve" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q2">Kapcsolattartó neve és beosztása <span class="required-star">*</span></label>
+        <input type="text" id="q2" name="2_kapcsolattarto" required>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q3">Hány telephelyen/projekten szeretnék használni a rendszert induláskor?</label>
+        <input type="text" id="q3" name="3_telephelyek_szama">
+      </div>
+      <div class="field">
+        <label class="field-label" for="q4">Hozzávetőlegesen hány felhasználó fogja használni (ellenőrzést végzők + akik csak megtekintik az eredményt)?</label>
+        <input type="text" id="q4" name="4_felhasznalok_szama">
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">2</span><h2>Jelenlegi folyamat</h2></div>
+
+      <div class="field">
+        <label class="field-label" for="q5">Jelenleg hogyan rögzítik a munkavédelmi ellenőrzéseket? (papír, Excel, más szoftver, stb.)</label>
+        <textarea id="q5" name="5_jelenlegi_folyamat"></textarea>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q6">Van-e már kialakult, használt jegyzőkönyv-sablonjuk?</label>
+        <textarea id="q6" name="6_meglevo_sablon"></textarea>
+        <div class="file-note">Ha van sablonjuk, kérjük, küldjék el fájlként emailben az info@esafety.hu címre — ezt az űrlapot fájlmelléklet nélkül tudják beküldeni.</div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q7">Mi a legnagyobb bosszúságuk vagy időveszteségük a jelenlegi módszerrel?</label>
+        <textarea id="q7" name="7_legnagyobb_problema"></textarea>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">3</span><h2>Az ellenőrzés szerkezete</h2></div>
+
+      <div class="field">
+        <label class="field-label" for="q8">Hány fő területre/kategóriára bontják az ellenőrzést? (pl. dokumentáció, munkakörnyezet, munkaeszközök, tűzvédelem — ez csak példa) Kérjük, sorolják fel a saját kategóriáikat:</label>
+        <textarea id="q8" name="8_kategoriak"></textarea>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q9">Kategóriánként hozzávetőlegesen hány konkrét ellenőrzési pontot vizsgálnak?</label>
+        <input type="text" id="q9" name="9_pontok_szama">
+      </div>
+      <div class="field">
+        <span class="field-label">Az ellenőrzési pontokra milyen válaszlehetőségek kellenek?</span>
+        <div class="option-list">
+          <label class="option"><input type="radio" name="10_valaszlehetosegek" value="Egyszerű Megfelelt / Nem megfelelt"><span class="option-text">Egyszerű Megfelelt / Nem megfelelt</span></label>
+          <label class="option"><input type="radio" name="10_valaszlehetosegek" value="Megfelelt / Nem megfelelt / Nem vizsgált"><span class="option-text">Megfelelt / Nem megfelelt / Nem vizsgált</span></label>
+          <label class="option"><input type="radio" name="10_valaszlehetosegek" value="Megfelelt / Nem megfelelt / Felszólítás után teljesítve / Nem vizsgált"><span class="option-text">Megfelelt / Nem megfelelt / Felszólítás után teljesítve / Nem vizsgált</span></label>
+          <label class="option">
+            <input type="radio" name="10_valaszlehetosegek" value="egyeb" data-other-toggle="q10other">
+            <span class="option-text">Egyéb, éspedig:</span>
+          </label>
+        </div>
+        <div class="option-other-input" id="q10other" hidden>
+          <input type="text" name="10_valaszlehetosegek_egyeb" placeholder="Írja le...">
+        </div>
+      </div>
+      <div class="field">
+        <span class="field-label">Szükséges-e minden ellenőrzési ponthoz fénykép csatolása?</span>
+        <div class="option-list">
+          <label class="option"><input type="radio" name="11_fenykep" value="Igen, minden ponthoz kötelező"><span class="option-text">Igen, minden ponthoz kötelező</span></label>
+          <label class="option"><input type="radio" name="11_fenykep" value="Csak nem megfelelő pontoknál kötelező"><span class="option-text">Csak nem megfelelő pontoknál kötelező</span></label>
+          <label class="option"><input type="radio" name="11_fenykep" value="Opcionális, nem kötelező"><span class="option-text">Opcionális, nem kötelező</span></label>
+          <label class="option"><input type="radio" name="11_fenykep" value="Nem szükséges fénykép"><span class="option-text">Nem szükséges fénykép</span></label>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q12">Szükséges-e szöveges megjegyzés/jegyzet mező az ellenőrzési pontokhoz?</label>
+        <input type="text" id="q12" name="12_megjegyzes_mezo">
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">4</span><h2>Résztvevők és aláírás</h2></div>
+
+      <div class="field">
+        <label class="field-label" for="q13">Kik a jegyzőkönyv aláírói? (pl. ellenőrzést végző, munkaterület felelőse, tanúk)</label>
+        <textarea id="q13" name="13_alairok"></textarea>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q14">Szükséges-e alvállalkozói lánc rögzítése (megrendelő → fővállalkozó → alvállalkozó(k))?</label>
+        <input type="text" id="q14" name="14_alvallalkozoi_lanc">
+      </div>
+      <div class="field">
+        <span class="field-label">Szükséges-e digitális aláírás rögzítése a helyszínen, vagy elegendő a résztvevők név szerinti feltüntetése?</span>
+        <div class="option-list">
+          <label class="option"><input type="radio" name="15_digitalis_alairas" value="Digitális aláírás szükséges"><span class="option-text">Digitális aláírás szükséges (érintőképernyőn/egérrel rajzolt)</span></label>
+          <label class="option"><input type="radio" name="15_digitalis_alairas" value="Elég a név szerinti feltüntetés"><span class="option-text">Elég a résztvevők név szerinti feltüntetése</span></label>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">5</span><h2>Szankciók / következmények</h2></div>
+      <p class="field-hint" style="margin-top:-10px;margin-bottom:18px;">Ha ez a szolgáltatásukban nem releváns, nyugodtan hagyják üresen ezt a szekciót.</p>
+
+      <div class="field">
+        <label class="field-label" for="q16">Alkalmaznak-e szankciós listát nem megfelelő pontok esetén (pl. szerződéses bírság, figyelmeztetés)?</label>
+        <input type="text" id="q16" name="16_szankciok">
+      </div>
+      <div class="field">
+        <label class="field-label" for="q17">Ha igen, kérjük röviden írják le a jelenlegi szankciós szabályzatukat.</label>
+        <textarea id="q17" name="17_szankcios_szabalyzat"></textarea>
+        <div class="file-note">A teljes dokumentumot fájlként emailben is elküldhetik az info@esafety.hu címre.</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">6</span><h2>Megjelenés</h2></div>
+
+      <div class="field">
+        <label class="field-label" for="q18">Van-e saját arculati elemük (logó, márkaszín), amit szeretnének látni a jegyzőkönyveken?</label>
+        <textarea id="q18" name="18_arculat"></textarea>
+        <div class="file-note">Ha van logójuk, kérjük, küldjék el fájlként emailben az info@esafety.hu címre.</div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q19">Szükséges-e, hogy a PDF jegyzőkönyv fejlécén saját formai követelmény is megjelenjen (pl. iktatószám, projekt-azonosító mező)?</label>
+        <textarea id="q19" name="19_formai_kovetelmenyek"></textarea>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="block-head"><span class="block-num">7</span><h2>Egyéb, kapcsolódó igények</h2></div>
+
+      <div class="field">
+        <span class="field-label">Szükségük van-e az alábbi kiegészítő modulokra?</span>
+        <p class="field-hint" id="modulesHint">Ezek külön modulok, nem része az alapcsomagnak — jelöljék, ha érdekli Önöket, a konzultáción erről is beszélünk.</p>
+        <div class="prefilled-note" id="prefilledNote" hidden>Az Önök korábbi jelzése alapján ezeket már bejelöltük — nyugodtan módosítsák, ha időközben változott az igényük.</div>
+        <div class="module-grid">
+          <label class="option"><input type="checkbox" name="20_modulok" value="Több jegyzőkönyv formátum"><span class="option-text">Több jegyzőkönyv formátum</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Digitális aláírás"><span class="option-text">Digitális aláírás</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Offline mód"><span class="option-text">Offline mód</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Óranyilvántartás"><span class="option-text">Óranyilvántartás / munkaidő-kimutatás</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Beosztáskezelés"><span class="option-text">Beosztáskezelés</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Statisztika és riportok"><span class="option-text">Statisztika és riportok</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Jogszabálykövetés"><span class="option-text">Jogszabálykövetés</span></label>
+          <label class="option"><input type="checkbox" name="20_modulok" value="Gépdokumentáció nyomon követése"><span class="option-text">Gépdokumentáció nyomon követése</span></label>
+        </div>
+        <div class="option-other-input" style="margin-left:0;margin-top:10px;">
+          <input type="text" name="20_modulok_egyeb" id="modulesOtherInput" placeholder="Egyéb modul-igény, éspedig...">
+        </div>
+      </div>
+      <div class="field">
+        <label class="field-label" for="q21">Van-e olyan speciális igényük, amit a fentiek nem fedtek le?</label>
+        <textarea id="q21" name="21_egyeb_igeny"></textarea>
+      </div>
+    </section>
+
+    <div class="submit-section">
+      <p>A beküldött válaszok közvetlenül az eSafety csapatához érkeznek. A válaszok alapján
+      összeállítjuk az Önökre szabott rendszer tervét, és a konzultáción ezt közösen
+      pontosítjuk, mielőtt elkezdődik a tényleges bevezetés.</p>
+      <button type="submit" class="submit-btn" id="submitBtn">Kérdőív elküldése</button>
+    </div>
+  </form>
+
+  <footer class="foot">eSafety · info@esafety.hu · https://esafety.hu</footer>
+</div>
+
+<script>
+  const form = document.getElementById('surveyForm');
+  const progressFill = document.getElementById('progressFill');
+  const progressLabel = document.getElementById('progressLabel');
+
+  // Modulok előtöltése URL-paraméterből, ha a linkhez már ismert modul-lista lett fűzve
+  // (pl. ?modules=T%C3%B6bb%20jegyz%C5%91k%C3%B6nyv%20form%C3%A1tum,Digit%C3%A1lis%20al%C3%A1%C3%ADr%C3%A1s)
+  // — ugyanaz a vesszővel elválasztott formátum, mint amit a weboldal modulválasztója küld.
+  const urlParams = new URLSearchParams(window.location.search);
+  const prefilledModulesRaw = urlParams.get('modules');
+  if (prefilledModulesRaw) {
+    const prefilledList = prefilledModulesRaw.split(',').map(m => m.trim()).filter(Boolean);
+    const moduleCheckboxes = form.querySelectorAll('input[name="20_modulok"]');
+    let matchedAny = false;
+    const unmatched = [];
+
+    prefilledList.forEach(name => {
+      const checkbox = Array.from(moduleCheckboxes).find(cb => cb.value.toLowerCase() === name.toLowerCase());
+      if (checkbox) {
+        checkbox.checked = true;
+        matchedAny = true;
+      } else {
+        unmatched.push(name);
+      }
+    });
+
+    if (unmatched.length > 0) {
+      document.getElementById('modulesOtherInput').value = unmatched.join(', ');
+      matchedAny = true;
+    }
+
+    if (matchedAny) {
+      document.getElementById('prefilledNote').hidden = false;
+    }
+  }
+
+  // "Other" text reveal for radio groups with a data-other-toggle option
+  form.querySelectorAll('[data-other-toggle]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const target = document.getElementById(radio.dataset.otherToggle);
+      const groupName = radio.name;
+      form.querySelectorAll(`input[name="${groupName}"]`).forEach(r => {
+        if (!r.dataset.otherToggle) {
+          target.hidden = true;
+        }
+      });
+      if (radio.checked) target.hidden = false;
+    });
+  });
+
+  const TOTAL_QUESTIONS = 21;
+  const questionGroups = [
+    ['1_ceg_neve'], ['2_kapcsolattarto'], ['3_telephelyek_szama'], ['4_felhasznalok_szama'],
+    ['5_jelenlegi_folyamat'], ['6_meglevo_sablon'], ['7_legnagyobb_problema'],
+    ['8_kategoriak'], ['9_pontok_szama'], ['10_valaszlehetosegek', '10_valaszlehetosegek_egyeb'],
+    ['11_fenykep'], ['12_megjegyzes_mezo'],
+    ['13_alairok'], ['14_alvallalkozoi_lanc'], ['15_digitalis_alairas'],
+    ['16_szankciok'], ['17_szankcios_szabalyzat'],
+    ['18_arculat'], ['19_formai_kovetelmenyek'],
+    ['20_modulok', '20_modulok_egyeb'], ['21_egyeb_igeny']
+  ];
+
+  function isGroupAnswered(names) {
+    return names.some(name => {
+      const els = form.querySelectorAll(`[name="${name}"]`);
+      return Array.from(els).some(el => {
+        if (el.type === 'radio' || el.type === 'checkbox') return el.checked;
+        return el.value.trim() !== '';
+      });
+    });
+  }
+
+  function updateProgress() {
+    const answered = questionGroups.filter(isGroupAnswered).length;
+    const pct = Math.round((answered / TOTAL_QUESTIONS) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = `${answered} / ${TOTAL_QUESTIONS} kérdés megválaszolva`;
+  }
+
+  form.addEventListener('input', updateProgress);
+  form.addEventListener('change', updateProgress);
+  updateProgress();
+
+  form.addEventListener('submit', () => {
+    document.getElementById('submitBtn').disabled = true;
+    document.getElementById('submitBtn').textContent = 'Küldés...';
+  });
+</script>
+</body>
+</html>
