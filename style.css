@@ -1220,6 +1220,128 @@ img, svg { max-width: 100%; display: block; }
 
 .footer-links a { color: var(--color-text-muted); }
 
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.footer-company {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+.footer-meta {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.footer-meta a { color: var(--color-text-muted); }
+.footer-meta a:hover { color: var(--color-primary); }
+
+.footer-divider { color: var(--color-border); }
+
+@media (max-width: 720px) {
+  .footer-inner { justify-content: center; text-align: center; }
+  .footer-legal { align-items: center; text-align: center; }
+  .footer-meta { justify-content: center; }
+}
+
+/* ---------- Jogi oldalak (Adatkezelési tájékoztató stb.) ---------- */
+.legal {
+  padding: 56px 0 84px;
+}
+
+.legal-container {
+  max-width: 760px;
+}
+
+.legal-updated {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin: 0 0 40px;
+}
+
+.legal h1 {
+  font-size: clamp(2rem, 3.4vw, 2.6rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px;
+}
+
+.legal h2 {
+  font-size: 1.25rem;
+  margin: 44px 0 14px;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.legal h2:first-of-type { border-top: none; padding-top: 0; }
+
+.legal h3 {
+  font-size: 1.02rem;
+  margin: 24px 0 10px;
+}
+
+.legal p, .legal li { color: var(--color-text-muted); font-size: 0.98rem; }
+.legal strong { color: var(--color-text); }
+
+.legal ul { margin: 0 0 16px; padding-left: 22px; }
+.legal li { margin-bottom: 6px; }
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.legal-table {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 0.92rem;
+}
+
+.legal-table th, .legal-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  vertical-align: top;
+}
+
+.legal-table th {
+  background: var(--color-bg-alt);
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.legal-note {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 20px 0;
+}
+
+.legal-note p:last-child { margin-bottom: 0; }
+
+.consent-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 0.98rem;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .hero-inner,
