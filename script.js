@@ -96,6 +96,107 @@ if (clientShowcase) {
   startShowcaseTimer();
 }
 
+// Testreszabás gallery: same rotating crossfade pattern as the client showcase
+const testreszabasGallery = document.getElementById('testreszabasGallery');
+if (testreszabasGallery) {
+  const slides = testreszabasGallery.querySelectorAll('.gallery-slide');
+  const dots = testreszabasGallery.querySelectorAll('.gallery-dot');
+  const prevBtn = testreszabasGallery.querySelector('.gallery-nav-prev');
+  const nextBtn = testreszabasGallery.querySelector('.gallery-nav-next');
+  let activeIndex = 0;
+  let galleryTimer = null;
+
+  function goToGallerySlide(index) {
+    slides[activeIndex].classList.remove('is-active');
+    dots[activeIndex].classList.remove('is-active');
+    activeIndex = index;
+    slides[activeIndex].classList.add('is-active');
+    dots[activeIndex].classList.add('is-active');
+  }
+
+  function startGalleryTimer() {
+    galleryTimer = setInterval(() => {
+      goToGallerySlide((activeIndex + 1) % slides.length);
+    }, 3000);
+  }
+
+  function stopGalleryTimer() {
+    clearInterval(galleryTimer);
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => goToGallerySlide(index));
+  });
+
+  prevBtn.addEventListener('click', () => {
+    goToGallerySlide((activeIndex - 1 + slides.length) % slides.length);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    goToGallerySlide((activeIndex + 1) % slides.length);
+  });
+
+  testreszabasGallery.addEventListener('mouseenter', stopGalleryTimer);
+  testreszabasGallery.addEventListener('mouseleave', startGalleryTimer);
+
+  startGalleryTimer();
+
+  // Lightbox: click/Enter a slide image to view it enlarged, navigable independently
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightboxImage');
+  const lightboxClose = document.getElementById('lightboxClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  const slideImages = Array.from(slides).map(slide => slide.querySelector('.gallery-slide-image'));
+  let lightboxIndex = 0;
+
+  function openLightbox(index) {
+    lightboxIndex = index;
+    lightboxImage.src = slideImages[lightboxIndex].src;
+    lightboxImage.alt = slideImages[lightboxIndex].alt;
+    lightbox.hidden = false;
+    stopGalleryTimer();
+    goToGallerySlide(lightboxIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    startGalleryTimer();
+  }
+
+  function showLightboxSlide(index) {
+    lightboxIndex = (index + slideImages.length) % slideImages.length;
+    lightboxImage.src = slideImages[lightboxIndex].src;
+    lightboxImage.alt = slideImages[lightboxIndex].alt;
+    goToGallerySlide(lightboxIndex);
+  }
+
+  slideImages.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
+    img.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        openLightbox(index);
+      }
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', () => showLightboxSlide(lightboxIndex - 1));
+  lightboxNext.addEventListener('click', () => showLightboxSlide(lightboxIndex + 1));
+
+  lightbox.addEventListener('click', (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (lightbox.hidden) return;
+    if (event.key === 'Escape') closeLightbox();
+    if (event.key === 'ArrowLeft') showLightboxSlide(lightboxIndex - 1);
+    if (event.key === 'ArrowRight') showLightboxSlide(lightboxIndex + 1);
+  });
+}
+
 // Module picker: live count + carries selection into the contact form
 const modulePicker = document.getElementById('modulePicker');
 const moduleCheckboxes = modulePicker.querySelectorAll('input[name="modules"]');

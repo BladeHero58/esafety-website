@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
 <link rel="apple-touch-icon" sizes="192x192" href="assets/favicon-192.png">
-<link rel="stylesheet" href="style.css?v=33">
+<link rel="stylesheet" href="style.css?v=38">
 <!-- Google Analytics 4 — a tényleges mérés csak süti-hozzájárulás után indul el, lásd script.js -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDTPJ7N1BB"></script>
 </head>
@@ -379,8 +379,35 @@
           <li>Csak azok a modulok, amikre ténylegesen szükség van</li>
         </ul>
       </div>
-      <div class="testreszabas-media">
-        <img src="assets/eSafety_admin_mockup.png" alt="eSafety admin felület testreszabási lehetőségei" class="testreszabas-image">
+      <div class="testreszabas-media testreszabas-media-full">
+        <div class="gallery-showcase" id="testreszabasGallery">
+          <div class="gallery-slide-viewport">
+            <div class="gallery-slide is-active">
+              <img src="assets/Screenshot_3.png" alt="eSafety rendszer képernyőkép 1" class="gallery-slide-image" tabindex="0" role="button" aria-label="Kép nagyítása">
+            </div>
+            <div class="gallery-slide">
+              <img src="assets/Screenshot_4.png" alt="eSafety rendszer képernyőkép 2" class="gallery-slide-image" tabindex="0" role="button" aria-label="Kép nagyítása">
+            </div>
+            <div class="gallery-slide">
+              <img src="assets/Screenshot_5.png" alt="eSafety rendszer képernyőkép 3" class="gallery-slide-image" tabindex="0" role="button" aria-label="Kép nagyítása">
+            </div>
+            <div class="gallery-slide">
+              <img src="assets/Screenshot_6.png" alt="eSafety rendszer képernyőkép 4" class="gallery-slide-image" tabindex="0" role="button" aria-label="Kép nagyítása">
+            </div>
+            <button type="button" class="gallery-nav gallery-nav-prev" aria-label="Előző képernyőkép">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <button type="button" class="gallery-nav gallery-nav-next" aria-label="Következő képernyőkép">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+          <div class="gallery-showcase-dots">
+            <button type="button" class="gallery-dot is-active" aria-label="1. képernyőkép megjelenítése"></button>
+            <button type="button" class="gallery-dot" aria-label="2. képernyőkép megjelenítése"></button>
+            <button type="button" class="gallery-dot" aria-label="3. képernyőkép megjelenítése"></button>
+            <button type="button" class="gallery-dot" aria-label="4. képernyőkép megjelenítése"></button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -572,6 +599,19 @@
   </div>
 </footer>
 
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Kép nagyítva">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Bezárás">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6L18 18M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+  </button>
+  <button type="button" class="lightbox-nav lightbox-nav-prev" id="lightboxPrev" aria-label="Előző kép">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 6L9 12L15 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <img src="" alt="" class="lightbox-image" id="lightboxImage">
+  <button type="button" class="lightbox-nav lightbox-nav-next" id="lightboxNext" aria-label="Következő kép">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 6L15 12L9 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</div>
+
 <div class="cookie-banner" id="cookieBanner" hidden role="dialog" aria-live="polite" aria-label="Süti-hozzájárulás">
   <div class="cookie-banner-inner">
     <p class="cookie-banner-text">
@@ -584,6 +624,6 @@
   </div>
 </div>
 
-<script src="script.js?v=10"></script>
+<script src="script.js?v=12"></script>
 </body>
 </html>
