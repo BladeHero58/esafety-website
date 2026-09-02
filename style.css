@@ -611,6 +611,21 @@ img, svg { max-width: 100%; display: block; }
   background: var(--color-primary-tint);
 }
 
+.module-new-badge {
+  position: absolute;
+  top: -10px;
+  right: 16px;
+  background: var(--color-primary);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-sm);
+}
+
 .module-badge {
   align-self: flex-start;
   background: var(--color-primary);
